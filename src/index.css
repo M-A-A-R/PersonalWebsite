@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-sans antialiased bg-beige-100 text-gray-800;
+  }
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .text-forest {
+    color: #2d5a27;
+  }
+  /* Green accent for links and highlighted words (reference-style) */
+  .link-forest {
+    @apply text-forest-600 underline decoration-forest-600/40 hover:decoration-forest-600 underline-offset-2;
+  }
+  .accent-green {
+    @apply text-forest-600 font-medium;
+  }
+}
+
+/* Light scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0ebe3;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 90, 39, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 90, 39, 0.5);
+}
+
+::selection {
+  background: rgba(45, 90, 39, 0.2);
+}
