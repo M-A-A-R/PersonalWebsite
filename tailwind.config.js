@@ -6,22 +6,23 @@ export default {
   ],
   theme: {
     extend: {
-      // Beige/off-white background + forest green accents
+      fontFamily: {
+        serif: ['Georgia', 'Times New Roman', 'Times', 'serif'],
+      },
       colors: {
-        beige: {
-          50: '#fdfcfb',
-          100: '#f8f5f0',
-          200: '#f0ebe3',
-          300: '#e5ddd0',
+        sage: {
+          50: '#f6f9f6',
+          100: '#eef3ee',
+          200: '#dce6dc',
+        },
+        ink: {
+          DEFAULT: '#2a332a',
+          muted: '#5c6b5c',
         },
         forest: {
-          600: '#2d5a27',
-          700: '#23491f',
-          800: '#1a3817',
+          link: '#2f5c2f',
+          hover: '#234823',
         },
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
       },
     },
   },

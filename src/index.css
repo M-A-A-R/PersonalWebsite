@@ -2,46 +2,117 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Page palette — single source of truth */
+:root {
+  --color-bg: #f4f8f4;
+  --color-bg-glow: #e6f0e6;
+  --color-text: #2a332a;
+  --color-muted: #8a988a;
+  --color-link: #2f5c2f;
+  --color-link-hover: #1e3f1e;
+  --color-rule: rgba(42, 51, 42, 0.08);
+
+  /* Smooth, slightly springy easing used everywhere */
+  --ease-aura: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
   }
   body {
-    @apply font-sans antialiased bg-beige-100 text-gray-800;
+    @apply font-serif antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-size: 17px;
+    line-height: 1.7;
+    /* Soft ambient glow — the "aura" */
+    background-image:
+      radial-gradient(
+        1200px 800px at 15% -10%,
+        var(--color-bg-glow) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 700px at 110% 110%,
+        var(--color-bg-glow) 0%,
+        transparent 55%
+      );
+    background-attachment: fixed;
   }
   * {
     box-sizing: border-box;
   }
 }
 
-@layer utilities {
-  .text-forest {
-    color: #2d5a27;
+@layer components {
+  .bg-page {
+    background-color: transparent;
   }
-  /* Green accent for links and highlighted words (reference-style) */
-  .link-forest {
-    @apply text-forest-600 underline decoration-forest-600/40 hover:decoration-forest-600 underline-offset-2;
+
+  .text-body {
+    color: var(--color-text);
   }
-  .accent-green {
-    @apply text-forest-600 font-medium;
+
+  .text-muted {
+    color: var(--color-muted);
+  }
+
+  /* Hairline divider — animated width handled in component */
+  .divider {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: var(--color-rule);
+    transform-origin: left center;
+  }
+
+  /* Section header label — slight tracking, calm weight */
+  .section-label {
+    font-weight: 700;
+    letter-spacing: 0.005em;
+  }
+
+  /* Link styling — calm underline, subtle motion on hover */
+  .link-classic {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--color-link) 30%, transparent);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition:
+      color 320ms var(--ease-aura),
+      text-decoration-color 320ms var(--ease-aura);
+  }
+
+  .link-classic:hover {
+    color: var(--color-link-hover);
+    text-decoration-color: color-mix(in srgb, var(--color-link-hover) 70%, transparent);
+  }
+
+  /* Link rows in a list nudge right on hover for a "natural" feel */
+  .link-row {
+    display: inline-block;
+    transition: transform 380ms var(--ease-aura);
+  }
+
+  .link-row:hover {
+    transform: translateX(3px);
   }
 }
 
-/* Light scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f0ebe3;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(45, 90, 39, 0.3);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 90, 39, 0.5);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .link-row:hover {
+    transform: none;
+  }
 }
 
 ::selection {
-  background: rgba(45, 90, 39, 0.2);
+  background: rgba(47, 92, 47, 0.18);
 }
