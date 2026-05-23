@@ -6,7 +6,7 @@ export const greeting = "Hey, I'm Mahesh"
 export const tagline = "CS + BioE @ Berkeley"
 
 export const focusLine =
-  "Currently working on understanding drug side effects"
+  "Currently working on improving drug side effects"
 
 export const introParagraph =
   "I've had the pleasure of spending my last six years working in this field."
