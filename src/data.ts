@@ -9,12 +9,11 @@ export const focusLine =
   "Currently working on improving drug side effects"
 
 export const introParagraph =
-  "I've had the pleasure of spending my last six years working in this field."
+  "I've had the pleasure of spending my last 6 years working in this field"
 
 export const compBioLine = {
   before: "I teach all new members at ",
   linkLabel: "CompBio@Berkeley",
-  after: ":",
   href: links.compBio,
 }
 
