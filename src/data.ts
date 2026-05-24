@@ -14,6 +14,7 @@ export const introParagraph =
 export const compBioLine = {
   before: "I teach all new members at ",
   linkLabel: "CompBio@Berkeley",
+  after: "",
   href: links.compBio,
 }
 
