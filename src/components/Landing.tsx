@@ -5,6 +5,7 @@ import {
   tagline,
   focusLine,
   introParagraph,
+  bclaLine,
   compBioLine,
   workSectionTitle,
   research,
@@ -107,6 +108,18 @@ export default function Landing() {
       <motion.div variants={blockV} className="mt-8 space-y-3">
         <p className="text-body">{focusLine}</p>
         <p className="text-body">{introParagraph}</p>
+        <p className="text-body">
+          {bclaLine.before}
+          <a
+            href={bclaLine.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-classic"
+          >
+            {bclaLine.linkLabel}
+          </a>
+          {bclaLine.after}
+        </p>
         <p className="text-body">
           {compBioLine.before}
           <a

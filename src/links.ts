@@ -9,6 +9,7 @@ export const links = {
   goodreads: "",
 
   compBio: "https://compbioatberkeley.github.io/",
+  bcla: "https://www.bc-la.org/",
   convexia: "https://www.convexia.bio/",
   brighterway: "https://www.brighterway.ai/",
   researchBlog: "https://sideeffect.me",

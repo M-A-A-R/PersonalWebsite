@@ -14,7 +14,7 @@ export const introParagraph =
 export const bclaLine = {
   before: "I was the youngest member of ",
   linkLabel: "BCLA",
-  after: "",
+  after: ":",
   href: links.bcla,
 }
 
